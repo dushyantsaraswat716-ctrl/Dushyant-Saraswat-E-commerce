@@ -2,6 +2,10 @@
   margin: 0;
   padding: 0;
 }
+body {
+  font-family: Arial, sans-serif;
+  background-color: wheat;
+}
 nav {
   background-color: black;
   display: flex;
@@ -21,7 +25,8 @@ a {
   font-weight: bold;
 }
 .cart-button {
-  background-color: wheat;
+  background-color: blue;
+  color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;

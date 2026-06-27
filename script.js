@@ -3,10 +3,10 @@ fetch(url)
   .then((response) => response.json())
   .then((data) => {
     data.products.map((el) => {
-      console.log(el.title);
+      // console.log(el.title);
+
       let outerdiv = document.createElement("div");
       outerdiv.style.border = "2px solid black";
-      outerdiv.style.backgroundColor = "rgb(245,222,179)";
       outerdiv.style.width = "350px";
       outerdiv.style.height = "550px";
       outerdiv.style.margin = "5px";
@@ -16,18 +16,20 @@ fetch(url)
       outerdiv.style.alignItems = "center";
       outerdiv.style.justifyContent = "center";
       outerdiv.style.borderRadius = "20px";
+      outerdiv.style.cursor = "pointer";
 
       outerdiv.addEventListener("click", () => {
-        localStorage.setItem("productId", el.id);
-
-        window.location.href = "productdetails.html";
+        window.location.href = `productdetails.html?id=${el.id}`;
       });
 
       let title = document.createElement("h3");
       title.innerText = el.title;
+      title.style.fontSize = "18px";
+      title.style.marginTop = "20px";
 
       let img = document.createElement("img");
       img.src = el.thumbnail;
+      img.style.margin="10px";
 
       let discription = document.createElement("p");
       discription.innerText = el.description;
@@ -39,7 +41,8 @@ fetch(url)
       let div = document.createElement("div");
       div.style.display = "flex";
       div.style.flexDirection = "row";
-      div.style.marginTop = "20px";
+      div.style.marginTop = "auto";
+      div.style.marginBottom = "25px";
 
       let price = document.createElement("p");
       price.innerText = `Rs. ${Math.ceil(el.price) * 95}/-`;
@@ -51,13 +54,13 @@ fetch(url)
       let cart = document.createElement("button");
       cart.innerText = "Add to Cart";
       cart.style.marginLeft = "150px";
-      cart.style.backgroundColor = "green";
+      cart.style.backgroundColor = "blue";
       cart.style.color = "white";
       cart.style.border = "none";
       cart.style.borderRadius = "10px";
       cart.style.padding = "10px 10px";
 
-       cart.addEventListener("click", (e) => {
+      cart.addEventListener("click", (e) => {
         e.stopPropagation();
 
         let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
@@ -73,17 +76,17 @@ fetch(url)
 
         localStorage.setItem("cart", JSON.stringify(cartItems));
 
-        // alert("Product Added Successfully");
+        alert("Product Added Successfully");
       });
 
       let mainbox = document.getElementById("main-box");
-
       mainbox.style.display = "grid";
-      mainbox.style.gridTemplateColumns =
-        "repeat(auto-fit, minmax(320px, 1fr))";
+      mainbox.style.gridTemplateColumns ="repeat(auto-fit, minmax(320px, 1fr))";
       mainbox.style.gap = "20px";
       mainbox.style.padding = "20px";
       mainbox.style.justifyItems = "center";
+      
+      mainbox.appendChild(outerdiv);
 
       div.appendChild(price);
       div.appendChild(cart);
@@ -92,7 +95,7 @@ fetch(url)
       outerdiv.appendChild(img);
       outerdiv.appendChild(discription);
       outerdiv.appendChild(div);
-      mainbox.appendChild(outerdiv);
+      
     });
   })
 
