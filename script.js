@@ -1,6 +1,9 @@
 let url = "https://dummyjson.com/products?limit=500";
 fetch(url)
-  .then((response) => response.json())
+  .then((res) => {
+    console.log(res);
+    return res.json();
+  })
   .then((data) => {
     data.products.map((el) => {
       // console.log(el.title);
@@ -79,7 +82,7 @@ fetch(url)
         alert("Product Added Successfully");
       });
 
-      let mainbox = document.getElementById("main-box");
+      let mainbox = document.querySelector("#main-box");
       mainbox.style.display = "grid";
       mainbox.style.gridTemplateColumns ="repeat(auto-fit, minmax(320px, 1fr))";
       mainbox.style.gap = "20px";

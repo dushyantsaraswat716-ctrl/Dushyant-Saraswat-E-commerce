@@ -25,12 +25,12 @@ summaryBox.style.flexWrap = "wrap";
 
 let info = document.createElement("div");
 
-let totalProductText = document.createElement("h2");
-let totalPriceText = document.createElement("h2");
+let totalProducts = document.createElement("h2");
+let total_price = document.createElement("h2");
 
-totalPriceText.style.color = "red";
+total_price.style.color = "red";
 
-info.append(totalProductText, totalPriceText);
+info.append(totalProducts, total_price);
 
 let btnDiv = document.createElement("div");
 btnDiv.style.display = "flex";
@@ -78,8 +78,8 @@ function display() {
 
     main.appendChild(empty);
 
-    totalProductText.innerText = "Total Products : 0";
-    totalPriceText.innerText = "Total Price : RS. 0";
+    totalProducts.innerText = "Total Products : 0";
+    total_price.innerText = "Total Price : RS. 0";
 
     return;
   }
@@ -174,8 +174,8 @@ function display() {
     main.appendChild(outer);
   });
 
-  totalProductText.innerText = `Total Products : ${totalProduct}`;
-  totalPriceText.innerText = `Total Price : Rs. ${totalPrice} /-`;
+  totalProducts.innerText = `Total Products : ${totalProduct}`;
+  total_price.innerText = `Total Price : Rs. ${totalPrice} /-`;
 }
 
 display();

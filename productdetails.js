@@ -22,7 +22,7 @@ fetch(url)
     img.style.width = "450px";
     img.style.height = "450px";
 
-    let right = document.createElement("div");
+    let rightbox = document.createElement("div");
 
     let title = document.createElement("h1");
     title.innerText = product.title;
@@ -115,20 +115,9 @@ fetch(url)
       alert("Product Added Successfully");
     });
 
-    right.append(
-      title,
-      brand,
-      category,
-      rating,
-      stock,
-      discount,
-      price,
-      desc,
-      buybtn,
-      btn,
-    );
+    rightbox.append(title,brand,category,rating,stock,discount,price,desc,buybtn,btn,);
 
-    card.append(img, right);
+    card.append(img, rightbox);
 
     main.append(card);
   });
