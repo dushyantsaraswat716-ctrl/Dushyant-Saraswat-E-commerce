@@ -8,6 +8,23 @@ main.style.gap = "20px";
 main.style.padding = "20px";
 main.style.justifyItems = "center";
 
+// main.style.cursor = "pointer";
+// summaryBox.style.transition = "all 0.2s ease";
+// main.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
+
+// main.addEventListener("mouseover", () => {
+//   main.style.transform = "translateY(-5px) scale(1.02)";
+//   main.style.boxShadow = "0 8px 16px rgba(0,0,0,0.2)";
+// });
+
+// main.addEventListener("mouseout", () => {
+//   main.style.transform = "translateY(0) scale(1)";
+//   main.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
+// });
+
+// main.addEventListener("click", (e) => {
+//   main.style.transform = "scale(0.96)";
+// });
 
 let summaryBox = document.createElement("div");
 
@@ -22,6 +39,23 @@ summaryBox.style.justifyContent = "space-between";
 summaryBox.style.alignItems = "center";
 summaryBox.style.flexWrap = "wrap";
 
+summaryBox.style.cursor = "pointer";
+summaryBox.style.transition = "all 0.2s ease";
+summaryBox.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
+
+summaryBox.addEventListener("mouseover", () => {
+  summaryBox.style.transform = "translateY(-5px) scale(1.02)";
+  summaryBox.style.boxShadow = "0 8px 16px rgba(0,0,0,0.2)";
+});
+
+summaryBox.addEventListener("mouseout", () => {
+  summaryBox.style.transform = "translateY(0) scale(1)";
+  summaryBox.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)";
+});
+
+summaryBox.addEventListener("click", (e) => {
+  summaryBox.style.transform = "scale(0.96)";
+});
 
 let info = document.createElement("div");
 
@@ -37,7 +71,6 @@ btnDiv.style.display = "flex";
 btnDiv.style.gap = "15px";
 
 
-
 let buyAll = document.createElement("button");
 buyAll.innerText = "Buy All";
 buyAll.style.background = "green";
@@ -47,7 +80,19 @@ buyAll.style.border = "none";
 buyAll.style.borderRadius = "10px";
 buyAll.style.fontSize = "16px";
 
+buyAll.addEventListener("mouseover", () => {
+  buyAll.style.transform = "translateY(-5px) scale(1.02)";
+  buyAll.style.boxShadow = "0 8px 16px rgba(0,0,0,0.3)";
+});
 
+buyAll.addEventListener("mouseout", () => {
+  buyAll.style.transform = "translateY(0) scale(1)";
+  buyAll.style.boxShadow = "0 4px 8px rgba(0,0,0,0.2)";
+});
+
+buyAll.addEventListener("mousedown", () => {
+  buyAll.style.transform = "scale(0.96)";
+});
 
 let removeAll = document.createElement("button");
 removeAll.innerText = "Remove All";
@@ -58,6 +103,20 @@ removeAll.style.border = "none";
 removeAll.style.borderRadius = "10px";
 removeAll.style.cursor = "pointer";
 removeAll.style.fontSize = "16px";
+
+removeAll.addEventListener("mouseover", () => {
+  removeAll.style.transform = "translateY(-5px) scale(1.02)";
+  removeAll.style.boxShadow = "0 8px 16px rgba(0,0,0,0.3)";
+});
+
+removeAll.addEventListener("mouseout", () => {
+  removeAll.style.transform = "translateY(0) scale(1)";
+  removeAll.style.boxShadow = "0 4px 8px rgba(0,0,0,0.2)";
+});
+
+removeAll.addEventListener("mousedown", () => {
+  removeAll.style.transform = "scale(0.96)";
+});
 
 btnDiv.append(buyAll, removeAll);
 
@@ -135,11 +194,25 @@ function display() {
     buy.innerText = "Buy";
     buy.style.background = "green";
     buy.style.color = "white";
-    buy.style.padding = "10px 20px";
+    buy.style.padding = "10px 30px";
     buy.style.border = "none";
     buy.style.borderRadius = "10px";
     buy.style.marginTop = "20px";
     buy.style.marginRight = "150px";
+
+    buy.addEventListener("mouseover", () => {
+      buy.style.transform = "translateY(-5px) scale(1.02)";
+      buy.style.boxShadow = "0 8px 16px rgba(0,0,0,0.3)";
+    });
+
+    buy.addEventListener("mouseout", () => {
+      buy.style.transform = "translateY(0) scale(1)";
+      buy.style.boxShadow = "0 4px 8px rgba(0,0,0,0.2)";
+    });
+
+    buy.addEventListener("mousedown", () => {
+      buy.style.transform = "scale(0.96)";
+    });
 
     buy.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -156,7 +229,20 @@ function display() {
     remove.style.borderRadius = "10px";
     remove.style.marginTop = "20px";
 
-   
+    remove.addEventListener("mouseover", () => {
+      remove.style.transform = "translateY(-5px) scale(1.02)";
+      remove.style.boxShadow = "0 8px 16px rgba(0,0,0,0.3)";
+    });
+
+    remove.addEventListener("mouseout", () => {
+      remove.style.transform = "translateY(0) scale(1)";
+      remove.style.boxShadow = "0 4px 8px rgba(0,0,0,0.2)";
+    });
+
+    remove.addEventListener("mousedown", () => {
+      remove.style.transform = "scale(0.96)";
+    });
+
     remove.addEventListener("click", (e) => {
       e.stopPropagation();
 
@@ -195,11 +281,11 @@ buyAll.addEventListener("click", () => {
   display();
 });
 
-  removeAll.addEventListener("click", () => {
-    if (cartData.length === 0) {
-      alert("Cart is Already Empty");
-      return;
-    }
+removeAll.addEventListener("click", () => {
+  if (cartData.length === 0) {
+    alert("Cart is Already Empty");
+    return;
+  }
 
   localStorage.removeItem("cart");
 
@@ -207,4 +293,3 @@ buyAll.addEventListener("click", () => {
 
   display();
 });
-

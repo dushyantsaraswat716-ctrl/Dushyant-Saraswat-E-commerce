@@ -21,6 +21,35 @@ fetch(url)
       outerdiv.style.borderRadius = "20px";
       outerdiv.style.cursor = "pointer";
 
+
+
+        outerdiv.style.cursor = "pointer"; 
+        outerdiv.style.transition = "all 0.2s ease";  
+        outerdiv.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)"; 
+
+        outerdiv.addEventListener("mouseover", () => {
+        outerdiv.style.transform = "translateY(-5px) scale(1.02)"; 
+        outerdiv.style.boxShadow = "0 8px 16px rgba(0,0,0,0.2)"; 
+        });
+
+        outerdiv.addEventListener("mouseout", () => {
+        outerdiv.style.transform = "translateY(0) scale(1)"; 
+        outerdiv.style.boxShadow = "0 4px 8px rgba(0,0,0,0.1)"; 
+        });
+        
+
+        outerdiv.addEventListener("click", (e) => {
+        outerdiv.style.transform = "scale(0.96)"; 
+    
+        setTimeout(() =>{
+          localStorage.setItem("productId", el.id);
+
+        window.location.href = "productdetails.html?id="  +el.id;
+         },150);
+      });
+
+
+
       outerdiv.addEventListener("click", () => {
         window.location.href = `productdetails.html?id=${el.id}`;
       });
@@ -62,6 +91,27 @@ fetch(url)
       cart.style.border = "none";
       cart.style.borderRadius = "10px";
       cart.style.padding = "10px 10px";
+
+
+       cart.addEventListener("mouseover",() =>{
+          cart.style.transform="scale(1.05)"; 
+            
+        });
+
+          cart.addEventListener("mouseout",() =>{
+          cart.style.transform="scale(1)"; 
+
+        });
+
+        cart.addEventListener("mousedown",() =>{
+          cart.style.transform="scale(0.95)";  
+        });
+
+          
+        cart.addEventListener("mousedown",() =>{
+          cart.style.transform="scale(1.05)";
+        });
+
 
       cart.addEventListener("click", (e) => {
         e.stopPropagation();

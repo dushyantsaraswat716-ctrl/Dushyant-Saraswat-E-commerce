@@ -79,6 +79,24 @@ fetch(url)
     buybtn.style.left = "50px";
     buybtn.style.top = "15px";
 
+      
+     buybtn.addEventListener("mouseover", () => {
+     buybtn.style.transform = "translateY(-5px) scale(1.02)";
+     buybtn.style.boxShadow = "0 8px 16px rgba(0,0,0,0.3)";
+});
+
+   
+    buybtn.addEventListener("mouseout", () => {
+     buybtn.style.transform = "translateY(0) scale(1)";
+     buybtn.style.boxShadow = "0 4px 8px rgba(0,0,0,0.2)";
+    
+});
+
+    
+      buybtn.addEventListener("mousedown", () => {
+     buybtn.style.transform = "scale(0.96)";
+     });
+
     buybtn.addEventListener("click", (e) => {
       e.stopPropagation();
 
@@ -97,6 +115,25 @@ fetch(url)
     btn.style.position = "relative";
     btn.style.left = "145px";
     btn.style.top = "15px";
+
+
+    
+    btn.addEventListener("mouseover", () => {
+    btn.style.transform = "translateY(-5px) scale(1.02)";
+    btn.style.boxShadow = "0 8px 16px rgba(0,0,0,0.3)";
+});
+
+   
+   btn.addEventListener("mouseout", () => {
+    btn.style.transform = "translateY(0) scale(1)";
+    btn.style.boxShadow = "0 4px 8px rgba(0,0,0,0.2)";
+    
+});
+
+    
+     btn.addEventListener("mousedown", () => {
+    btn.style.transform = "scale(0.96)";
+     });
 
     btn.addEventListener("click", () => {
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
